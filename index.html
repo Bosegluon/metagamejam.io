@@ -2,144 +2,153 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>转账汇款</title>
- 
-    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <title>Meta Game Jam</title>
  
  
     <style type="text/css">
+        @font-face {
+          font-family: GraublauWeb;
+          src: url("./fonts/MiSans-Light.ttf");
+        }
         body {
-            background-color:#00b38a;
+            background-image: url('img/MGJlogo.jpg');
+            font-family: GraublauWeb;
+            background-position:fixed;
+            background-position:center;
             text-align:center;
         }
+        table {margin: auto;}
  
-        .lp-login {
-            position:absolute;
-            width:500px;
-            height:300px;
+        .lp{
+
             top:50%;
             left:50%;
-            margin-top:-250px;
-            margin-left:-250px;
-            background: #fff;
+            padding:100px;
+            margin: 10px auto;
+            width:fit-content;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 4px;
-            box-shadow: 0 0 10px #12a591;
-            padding: 57px 50px 35px;
-            box-sizing: border-box
+            box-shadow: 0 0 10px #000000;
+ 
+        }
+        .container {
+            margin:100px auto;
+            height: 681px;
+            width: 794px;
+            overflow: hidden;
+        }
+        .wrap {
+            position: relative;
+            width:100000px;
+            left: 0px;
+            animation: animateImg ease 10s infinite normal;
         }
  
- 
-        .lp-login .submitBtn {
-            display:block;
-            text-decoration:none;
-            height: 48px;
-            width: 150px;
-            line-height: 48px;
-            font-size: 16px;
-            color: #fff;
-            text-align: center;
-            background-image: -webkit-gradient(linear, left top, right top, from(#09cb9d), to(#02b389));
-            background-image: linear-gradient(90deg, #09cb9d, #02b389);
-            border-radius: 3px
+        .wrap img {
+            width: 794px;
+            float: left;
+            height: 681px;
+            display: block;
         }
  
+        @keyframes animateImg {
+            20% {
+                left: 0px;
+            }
+
+            30% {
+                left: -794px;
+            }
+            70% {
+                left: -794px;
+            }
  
-        input[type='text'] {
-            height:30px;
-            width:250px;
-        }
- 
-        span {
-            font-style: normal;
-            font-variant-ligatures: normal;
-            font-variant-caps: normal;
-            font-variant-numeric: normal;
-            font-variant-east-asian: normal;
-            font-weight: normal;
-            font-stretch: normal;
-            font-size: 14px;
-            line-height: 22px;
-            font-family: "Hiragino Sans GB", "Microsoft Yahei", SimSun, Arial, "Helvetica Neue", Helvetica;
+            80% {
+                left: 0px;
+            }
         }
  
     </style>
-    <script type="text/javascript">
-        $(function(){
-            $(".submitBtn").bind("click",function(){
-                var fromAccount = $("#fromAccount").val();
-                var toAccount = $("#toAccount").val();
-                var money = $("#money").val();
- 
-                if(money == null || $.trim(money).length == 0){
-                    alert("sorry,必须输入转账金额~");
-                    return;
-                }
- 
-                $.ajax({
-                    url:'/transferServlet',
-                    type:'POST',    //GET
-                    async:false,    //或false,是否异步
-                    data:{
-                        fromCardNo:fromAccount.split(' ')[1],
-                        toCardNo:toAccount.split(' ')[1],
-                        money:money
-                    },
-                    timeout:5000,    //超时时间
-                    dataType:'json', //返回的数据格式：json/xml/html/script/jsonp/text
-                    success:function(data){
-                        if("200" == data.status){
-                            alert("转账成功~~~");
-                        }else{
-                            alert("转账失败~~~,message:" + data.message);
-                        }
-                    }
-                })
-            })
-        })
- 
-        //检查输入值是否为整数
-        function checkFormat(obj){
-            var reg = /^[0-9]+[0-9]*]*$/;
-            if($.trim($(obj).val()).length>0){
-                if(!reg.test($(obj).val())){
-                    alert("输入格式错误！请输整数！");
-                    $(obj).val("");
-                }else{
-                    $(obj).val(parseInt($(obj).val()));
-                }
-            }
-        }
-    </script>
+    
 </head>
 <body>
- 
+
  
 <form>
-    <table class="lp-login">
-        <tr>
-            <td align="right"><span>收款账户</span></td>
-            <td align="center">
-                <input type="text" id="toAccount" value="韩梅梅 6029621011001" disabled></input>
-            </td>
-        </tr>
-        <tr>
-            <td align="right"><span>付款账户</span></td>
-            <td align="center">
-                <input type="text" id="fromAccount" value="李大雷 6029621011000" disabled></input>
-            </td>
-        </tr>
-        <tr>
-            <td align="right"><span>转账金额</span></td>
-            <td align="center">
-                <input type="text" id="money" onblur="checkFormat(this)"></input>
-            </td>
-        </tr>
-        <tr align="center">
-            <td colspan="2">
-                <a href="javasrcipt:void(0)" class="submitBtn"><span>转 出</span></a>
-            </td>
-        </tr>
-    </table>
+<div class="lp">
+<div class="container">
+        <div class="wrap">
+            <img src="img/MGJlogo.jpg"alt="" />
+            <img src="img/MGJlogo.png"alt="" />
+        </div></div></div>
+<div class="lp">
+    <table class="lp">
+      <h1>Meta Game Jam</h1><tbody><tr><td>▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇
+</td><td><em>Meta Game Jam&nbsp;Meta Game Jam&nbsp;Meta Game Jam&nbsp;Meta Game Jam&nbsp;Meta</em>
+</td><td>▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇
+</td></tr><tr><td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+</td><td><img src="https://i.328888.xyz/2022/12/12/yHFwZ.md.png" alt="Meta Game Jam" title="Meta Game Jam" style="cursor: pointer; max-width: 100%; height: auto !important; vertical-align: middle; font-size: 14px; text-align: center; background-color: rgb(255, 255, 255);">
+</td><td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+</td></tr><tr><td>▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇
+</td><td><em>Meta Game Jam&nbsp;Meta Game Jam&nbsp;Meta Game Jam&nbsp;Meta Game Jam&nbsp;Meta&nbsp;</em>
+</td><td>▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇
+</td></tr></tbody></table>
+<figure><p>
+</p></figure>
+<p  style="text-align:left;text-indent:2em">From meta fiction to meta games, we have seen too much. Laurence Sterne's&nbsp;<em>The Life and Opinions of Tristram Shandy, Gentleman</em>&nbsp;pioneered "meta", and then meta novels and meta games followed. Meta games are not just works of art, but games about games.
+</p>
+<p  style="text-align:left;text-indent:2em">When meta is added with game, it literally becomes a "game about games". That is to say, in the form of "games", as the carrier of expression, "what is a game?" "How does the game work?" "Why is the game like this and not like that?" Countless problems related to games can be called "games about games" when they describe facts, express opinions or trigger players to think.
+</p>
+<p><strong><em>When I'm talking about meta game, what am I talking about?</em></strong>
+</p>
+<p style="text-align:left;text-indent:2em">Taking DND as an example, suppose you are playing a soldier who has never seen Medusa and does not know her ability, but takes out a mirror to reflect her laser at the first time. This is a meta behavior.
+</p>
+<p style="text-align:left;text-indent:2em">For&nbsp;<strong><em>"Meta"</em></strong>, if the system and characters in the game are aware of our existence, we high-dimensional creatures should be surprised, even a little afraid. Because game npcs and ruthless programs that we are used to ignoring are always observing our behavior and "controlling" our computers. We are led by computer programs and npcs. They broke through the fourth wall, which made us excited.
+</p>
+<p style="text-align:left;text-indent:2em">This is just an example. This jam aims to inspire game developers to develop more games that focus on meta, don't get stuck in one idea.&nbsp;
+</p>
+<p><strong>"Meta" is more than just breaking the wall.</strong>
+</p>
+<h2 class="text-center">Theme:</h2>
+<h3 class="text-center">▇▇▇▇▇▇▇e</h3>
+<p class="text-center">(will show when jam starts, for now, you are given one word)
+</p>
+<p>
+</p>
+<h2>Rules&Requirement:</h2>
+<ul><li style="text-align:left">All programming needs to be done after the start of the jam,&nbsp;except for algorithms or anything that has nothing to do with game content or playing methods.
+</li><li style="text-align:left">You can use the jam to complete a project you've already begun working on, so long as it&nbsp;<strong>fits with the jam's theme</strong>.
+</li><li style="text-align:left">Have a team? Great! One person may focus on one part, another on another, and so on. There are no restrictions on team sizes, so invite your friends!
+</li><li style="text-align:left">Use your own team's or other assets as long as you comply with all their licenses.&nbsp;<strong>(Except for non-commercial assets, your game is not allowed to be used, whether paid or not)</strong>
+</li><li style="text-align:left"><strong>No NSFW</strong>
+</li><li style="text-align:left"><strong>Your game should not destroy the player's computer.&nbsp;</strong>You can pretend to do it, but when the&nbsp;<em>"game"</em>&nbsp;is closed, everything should be restored (except the data of the game itself).
+</li><li style="text-align:left">All game engines are allowed!</li><li style="text-align:left">The primary criteria is “Metaness”, but it doesn't mean that you will get a high score only with a good meta idea.&nbsp;</li></ul>
+<p><strong>At last, please pay more attention to the information in the community, where any changes will be presented.</strong>
+</p>
+<p><strong><em>Take your time and good luck!</em></strong>
+</p>
+<p>
+</p>
+<p>
+</p>
+<pre>
+ ,ggg, ,ggg,_,ggg,      ,gg,         gg     
+dP""Y8dP""Y88P""Y8b    i8""8i       dP8,    
+Yb, `88'  `88'  `88    `8,,8'      dP Yb    
+ `"  88    88    88     `Y88aaad8 ,8  `8,   
+     88    88    88      d8""""Y8,I8   Yb   
+     88    88    88     ,8P     8b`8b, `8,  
+     88    88    88     dP      Y8 `"Y88888 
+     88    88    88 _ ,dP'      I8     "Y8  
+     88    88    Y8,"888,,_____,dP      ,88,
+     88    88    `Y8a8P"Y888888P"   ,ad88888
+                                 ,dP"'   Yb 
+                                ,8'      I8 
+                               ,8'       I8 
+                               I8,      ,8' 
+                               `Y8,___,d8'  
+                                 "Y888P"     </pre>
+    </div>
 </form>
  
 </body>
